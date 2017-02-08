@@ -1,6 +1,6 @@
 "use strict";
 
-/*! cash-dom 1.3.5, https://github.com/kenwheeler/cash @license MIT */
+/*! cash-dom 1.3.5-1, https://github.com/kenwheeler/cash @license MIT */
 ;(function (root, factory) {
   if (typeof define === "function" && define.amd) {
     define(factory);
@@ -30,7 +30,7 @@
   var frag;
   function parseHTML(str) {
     if (!frag) {
-      frag = doc.implementation.createHTMLDocument();
+      frag = doc.implementation.createHTMLDocument("");
       var base = frag.createElement("base");
       base.href = doc.location.href;
       frag.head.appendChild(base);
