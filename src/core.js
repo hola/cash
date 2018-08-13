@@ -28,6 +28,12 @@ function parseHTML(str) {
     frag = doc.implementation.createHTMLDocument('');
     var base = frag.createElement('base');
     base.href = doc.location.href;
+    try {
+        if (doc.domain && frag.domain!==doc.domain)
+        {
+            frag.domain = doc.domain;
+        }
+    } catch(e){}
     frag.head.appendChild(base);
   }
 
