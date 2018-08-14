@@ -1,6 +1,6 @@
 "use strict";
 
-/*! cash-dom 1.3.5-3, https://github.com/kenwheeler/cash @license MIT */
+/*! cash-dom 1.3.5-4, https://github.com/kenwheeler/cash @license MIT */
 ;(function (root, factory) {
   if (typeof define === "function" && define.amd) {
     define(factory);
@@ -40,6 +40,14 @@
       } catch (e) {}
       frag.head.appendChild(base);
     }
+    try {
+      var old;
+      if ((old = frag.body.childNodes) && old.length) {
+        for (var i = 0; i < old.length; i++) {
+          frag.body.removeChild(old[i]);
+        }
+      }
+    } catch (e) {}
 
     frag.body.innerHTML = str;
 

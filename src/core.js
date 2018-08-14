@@ -36,6 +36,16 @@ function parseHTML(str) {
     } catch(e){}
     frag.head.appendChild(base);
   }
+  try {
+      var old;
+      if ((old = frag.body.childNodes) && old.length)
+      {
+          for (var i = 0; i<old.length; i++)
+          {
+              frag.body.removeChild(old[i]);
+          }
+      }
+  } catch(e){}
 
   frag.body.innerHTML = str;
 
